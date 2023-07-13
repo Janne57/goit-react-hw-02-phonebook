@@ -1,0 +1,22 @@
+.form__basic {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    /* gap: 30px; */
+    /* margin-top: 50px; */
+    margin-left: 30px;
+    /* padding-top: 10px;   */
+    padding: 10px;  
+    outline: solid 2px rgb(68, 67, 67);
+}
+
+.form__button {
+    margin-top: 20px;
+    border-radius: 15%;
+    border: solid 2ps grey;
+    /* display: flex; */
+    padding: 10px;
+    align-items: center;
+    background-color: rgb(166, 166, 245);
+}
