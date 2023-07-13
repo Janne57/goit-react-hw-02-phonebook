@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Contacts from './/Contacts/Contacts.js';
 import ContactForm from './ContactForm/ContactForm.js';
 import Filter from './Filter/Filter.js';
-
+import { nanoid } from 'nanoid';
 
 class App extends Component {
   state = {
@@ -16,11 +16,12 @@ class App extends Component {
   };
 
   addContact = ({ name, number }) => {
-const contact = {
+  const contact = {
     id: nanoid(),
     name,
     number,
   };
+
 /*1 вариант*/
      if (this.state.contacts.find(contact => 
       contact.name.toLowerCase() === name.toLowerCase())) {
@@ -32,7 +33,7 @@ const contact = {
      
             
   /*2 вариант*/
-  
+
 
   //   this.setState(prevState => ({
   //     contacts: prevState.contacts.find(contact => {
@@ -46,7 +47,7 @@ const contact = {
   //   console.log('contacts.name', this.state.contacts[1].name);
   //   console.log('contacts.name', this.state.contacts.name);
   };
-  
+    
 
   changeFilter = evt => {
     this.setState({ filter: evt.currentTarget.value });
