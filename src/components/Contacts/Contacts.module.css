@@ -12,14 +12,14 @@
 
 .contact__item__name {
     width: 150px;
-    justify-content: start;
+    justify-content: flex-start;
     display: flex;
     /* outline: solid 2px red; */
 }
 
 .contact__item__numb {
     width: 190px;
-    justify-content: start;
+    justify-content: flex-start;
     display: flex;
     /* outline: solid 2px red; */
 }
