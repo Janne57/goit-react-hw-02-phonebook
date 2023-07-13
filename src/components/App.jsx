@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Contacts from './/Contacts/Contacts.js';
 import ContactForm from './ContactForm/ContactForm.js';
 import Filter from './Filter/Filter.js';
-import { nanoid } from 'nanoid';
+
 
 class App extends Component {
   state = {
@@ -16,7 +16,11 @@ class App extends Component {
   };
 
   addContact = ({ name, number }) => {
-
+const contact = {
+    id: nanoid(),
+    name,
+    number,
+  };
 /*1 вариант*/
      if (this.state.contacts.find(contact => 
       contact.name.toLowerCase() === name.toLowerCase())) {
@@ -28,11 +32,7 @@ class App extends Component {
      
             
   /*2 вариант*/
-  // const contact = {
-  //   id: nanoid(),
-  //   name,
-  //   number,
-  // };
+  
 
   //   this.setState(prevState => ({
   //     contacts: prevState.contacts.find(contact => {
@@ -46,14 +46,6 @@ class App extends Component {
   //   console.log('contacts.name', this.state.contacts[1].name);
   //   console.log('contacts.name', this.state.contacts.name);
   };
-    
-  
-   
-
-  
-  
-
-
   
 
   changeFilter = evt => {
@@ -80,7 +72,7 @@ class App extends Component {
   render() {
     const { contacts, filter } = this.state;
     const visibleContact = this.getVisibleContact();
-    const nameContact = contacts.map(contact => contact.name);
+    // const nameContact = contacts.map(contact => contact.name);
 
     return (
       <>
