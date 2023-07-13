@@ -23,17 +23,12 @@ class ContactForm extends Component {
     //   name,
     //   number,
     // };
-    
+
     console.log('this.props.nameContact', this.props.nameContact);
 
-    if (this.props.nameContact.includes(name.toLowerCase())) {
-      return (
-        alert(`${name} is already in contacts.`),
-        this.setState({ name: '', number: '' })
-      );
-    }
+   
 
-    this.props.onSubmit(name, number);
+    this.props.onSubmit({ name, number });
     this.setState({ name: '', number: '' });
     // console.log(this.state);
   };
@@ -74,5 +69,4 @@ export default ContactForm;
 
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  nameContact: PropTypes.arrayOf(PropTypes.string),
 };

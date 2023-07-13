@@ -13,23 +13,48 @@ class App extends Component {
       { id: 'id-4', name: 'Mark Tven', number: '123-45-70' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
-  addContact = (name, number) => {
-    const contact = {
-      id: nanoid(),
-      name,
-      number,
-    };
+  addContact = ({ name, number }) => {
 
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, contact],
-    }));
-    // console.log(name);
-    // console.log(number);
+/*1 вариант*/
+     if (this.state.contacts.find(contact => 
+      contact.name.toLowerCase() === name.toLowerCase())) {
+          return alert(`${name} is already in contacts.`);
+        } else {
+          this.setState(prevState => ({
+              contacts: [...prevState.contacts, contact],
+            }));};
+     
+            
+  /*2 вариант*/
+  // const contact = {
+  //   id: nanoid(),
+  //   name,
+  //   number,
+  // };
+
+  //   this.setState(prevState => ({
+  //     contacts: prevState.contacts.find(contact => {
+  //       if (contact.name.toLowerCase() === name.toLowerCase()) {
+  //         return alert(`${name} is already in contacts.`);
+  //       }
+  //       return [...prevState.contacts, contact];
+  //     }),
+  //   }));
+  //   console.log('this.state.contacts', this.state.contacts);
+  //   console.log('contacts.name', this.state.contacts[1].name);
+  //   console.log('contacts.name', this.state.contacts.name);
   };
+    
+  
+   
+
+  
+  
+
+
+  
 
   changeFilter = evt => {
     this.setState({ filter: evt.currentTarget.value });
@@ -60,7 +85,7 @@ class App extends Component {
     return (
       <>
         <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.addContact} nameContact={nameContact} />
+        <ContactForm onSubmit={this.addContact} />
 
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
